@@ -5,6 +5,8 @@ const logger = require('morgan');
 const app = express();
 const cors = require('cors');
 
+const product= require('./api/product');
+
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
@@ -17,6 +19,7 @@ app.get('/',(req,res)=>{
   });
 });
 
+app.use('/api/v1/products',product);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
